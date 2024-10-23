@@ -1,0 +1,10 @@
+---
+// サイトのタイトル
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<a href="/" class="text-4xl font-black">{title}</a>

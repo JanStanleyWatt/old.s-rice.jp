@@ -1,10 +1,10 @@
 ---
 // サイトのタイトル
 interface Props {
-    title: string;
+    siteTitle: string;
 }
 
-const { title } = Astro.props;
+const { siteTitle } = Astro.props;
 ---
 
-<a href="/" class="text-4xl font-black">{title}</a>
+<a href="/" class="text-4xl font-black">{siteTitle}</a>

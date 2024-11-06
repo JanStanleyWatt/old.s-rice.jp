@@ -1,7 +1,7 @@
 ---
 import { getArticles } from "../../lib/microcms.ts";
 
-const response = await getArticles({});
+const response = await getArticles({ fields: ["id", "title"] });
 ---
 
 <div>
@@ -10,7 +10,7 @@ const response = await getArticles({});
         {
             response.contents.map((article) => (
                 <li>
-                    <a href={article.id}>{article.title}</a>
+                    <a href={"/article/" + article.id}>{article.title}</a>
                 </li>
             ))
         }

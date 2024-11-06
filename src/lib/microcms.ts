@@ -30,7 +30,7 @@ export type ArticleResponse = {
 // APIの呼び出し
 export const getArticles = async (queries: MicroCMSQueries) => {
     return await client.get<ArticleResponse>({
-        endpoint: "blogs",
+        endpoint: import.meta.env.ARTICLE_ENDPOINT,
         queries: queries,
     });
 };
@@ -41,7 +41,7 @@ export const getArticleDetail = async (
     queries: MicroCMSQueries,
 ) => {
     return await client.getListDetail<Article>({
-        endpoint: "blogs",
+        endpoint: import.meta.env.ARTICLE_ENDPOINT,
         contentId,
         queries,
     });

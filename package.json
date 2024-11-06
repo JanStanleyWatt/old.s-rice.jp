@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/tailwind": "^5.1.2",
     "astro": "^4.16.7",
     "dotenv": "^16.4.5",
     "microcms-js-sdk": "^3.1.2",

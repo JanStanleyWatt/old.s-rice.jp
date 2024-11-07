@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import {
+    getArticleDetail,
+    getArticles,
+    type Article,
+} from "../../lib/microcms";
+
+export const getStaticPaths = (async () => {
+    const response = await getArticles({ fields: ["id"] });
+
+    return response.contents.map((article: Article) => ({
+        params: { id: article.id },
+    }));
+}) satisfies GetStaticPaths;
+
+const id = Astro.params.id;
+const response = await getArticleDetail(id, { fields: ["title", "content"] });
+---
+
+<Layout title={response.title + " | " + "Jの部屋(仮)"}>
+    <main>
+        <h1>{response.title}</h1>
+        <div set:html={response.content} />
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1em;
+        max-width: 120ch;
+    }
+</style>

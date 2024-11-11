@@ -1,6 +1,7 @@
 // Usage: import { getArticles, getArticleDetail } from "~/lib/microcms";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 import { createClient } from "microcms-js-sdk";
+import type { ContentElement } from "./contentElements";
 
 // MicroCMSのクライアントを初期化
 const client = createClient({
@@ -17,6 +18,7 @@ export type Article = {
     revisedAt: string;
     title: string;
     content: string;
+    element: ContentElement[];
 };
 
 // レスポンスの型定義

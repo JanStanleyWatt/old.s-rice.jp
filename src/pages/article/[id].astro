@@ -14,7 +14,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const id = Astro.params.id;
-const response = await getArticleDetail(id, { fields: ["title", "element"] });
+const response = await getArticleDetail(id, { fields: ["title", "elements"] });
 ---
 
 <Layout title={response.title + " | " + "Jの部屋(仮)"}>

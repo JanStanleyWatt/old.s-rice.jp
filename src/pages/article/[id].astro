@@ -19,7 +19,7 @@ const response = await getArticleDetail(id, { fields: ["title", "elements"] });
 
 <Layout title={response.title + " | " + "Jの部屋(仮)"}>
     <main>
-        <h1>{response.title}</h1>
+        <h1 class="text-2xl font-bold">{response.title}</h1>
 
         {
             response.elements.map((e: ContentElement) => {

@@ -5,7 +5,7 @@ const response = await getArticles({ fields: ["id", "title"] });
 ---
 
 <div>
-    <h1>Welcome to Astro.</h1>
+    <h1 class="text-xl font-black">Welcome to Astro.</h1>
     <ul>
         {
             response.contents.map((article) => (

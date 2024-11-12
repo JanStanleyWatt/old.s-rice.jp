@@ -17,8 +17,7 @@ export type Article = {
     publishedAt: string;
     revisedAt: string;
     title: string;
-    content: string;
-    element: ContentElement[];
+    elements: ContentElement[];
 };
 
 // レスポンスの型定義

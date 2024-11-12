@@ -14,7 +14,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const id = Astro.params.id;
-const response = await getArticleDetail(id, { fields: ["title", "element"] });
+const response = await getArticleDetail(id, { fields: ["title", "elements"] });
 ---
 
 <Layout title={response.title + " | " + "Jの部屋(仮)"}>
@@ -22,7 +22,7 @@ const response = await getArticleDetail(id, { fields: ["title", "element"] });
         <h1>{response.title}</h1>
 
         {
-            response.element.map((e: ContentElement) => {
+            response.elements.map((e: ContentElement) => {
                 // このswitch文は、見出しのレベルに応じて、適切な見出し要素を返す
                 switch (e.fieldId) {
                     case "headline":

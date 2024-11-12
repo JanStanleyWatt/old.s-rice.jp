@@ -1,12 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
-import Layout from "../../layouts/Layout.astro";
-import {
-    getArticleDetail,
-    getArticles,
-    type Article,
-} from "../../lib/microcms";
-import type { ContentElement } from "../../lib/contentElements";
+import Layout from "@layouts/Layout.astro";
+import { getArticleDetail, getArticles, type Article } from "@lib/microcms";
+import type { ContentElement } from "@lib/contentElements";
 
 export const getStaticPaths = (async () => {
     const response = await getArticles({ fields: ["id"] });

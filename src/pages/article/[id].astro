@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import Layout from "@layouts/Layout.astro";
 import { getArticleDetail, getArticles, type Article } from "@lib/microcms";
 import type { ContentElement } from "@lib/contentElements";
+import Headline from "@components/main/element/headline.astro";
 
 export const getStaticPaths = (async () => {
     const response = await getArticles({ fields: ["id"] });
@@ -19,33 +20,20 @@ const response = await getArticleDetail(id, { fields: ["title", "element"] });
 <Layout title={response.title + " | " + "Jの部屋(仮)"}>
     <main>
         <h1>{response.title}</h1>
-        <p>
-            {
-                response.element.map((e: ContentElement) => {
-                    // このswitch文は、見出しのレベルに応じて、適切な見出し要素を返す
-                    switch (e.fieldId) {
-                        case "headline":
-                            switch (e.level) {
-                                case "中":
-                                    return <h2>{e.body}</h2>;
 
-                                case "小":
-                                    return <h3>{e.body}</h3>;
+        {
+            response.element.map((e: ContentElement) => {
+                // このswitch文は、見出しのレベルに応じて、適切な見出し要素を返す
+                switch (e.fieldId) {
+                    case "headline":
+                        return <Headline headline={e} />;
+                    case "paragraph":
+                        return <p>{e.text}</p>;
 
-                                case "超小":
-                                    return <h4>{e.body}</h4>;
-                                default:
-                                    return;
-                            }
-
-                        case "paragraph":
-                            return <p>{e.text}</p>;
-
-                        default:
-                            break;
-                    }
-                })
-            }
-        </p>
+                    default:
+                        break;
+                }
+            })
+        }
     </main>
 </Layout>

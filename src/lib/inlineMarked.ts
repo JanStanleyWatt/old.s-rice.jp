@@ -5,7 +5,6 @@ import aozoraRuby from "marked-aozora";
 
 const marked = new Marked({
     async: true,
-    breaks: true,
     gfm: true,
     extensions: [aozoraRuby()], // Use default option
 });

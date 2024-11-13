@@ -9,10 +9,10 @@ interface Props {
 }
 
 const { paragraph } = Astro.props;
-const paratext = await inlineMarked(paragraph.text);
+const paratext = await inlineMarked(paragraph.body);
 ---
 
 <div>
     {/* 段落の頭にて1文字開けるため、先頭に全角スペースを挿入 */}
-    <p set:html={"　" + paratext} />
+    <p set:html={"\u3000" + paratext} />
 </div>

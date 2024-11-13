@@ -3,8 +3,8 @@ import type { GetStaticPaths } from "astro";
 import Layout from "@layouts/Layout.astro";
 import { getArticleDetail, getArticles, type Article } from "@lib/microcms";
 import type { ContentElement } from "@lib/contentElements";
-import Headline from "@components/main/element/headline.astro";
 import Paragraph from "@components/main/element/paragraph.astro";
+import HeadPara from "@components/main/element/headPara.astro";
 
 export const getStaticPaths = (async () => {
     const response = await getArticles({ fields: ["id"] });
@@ -26,11 +26,10 @@ const response = await getArticleDetail(id, { fields: ["title", "elements"] });
             response.elements.map((e: ContentElement) => {
                 // このswitch文は、見出しのレベルに応じて、適切な見出し要素を返す
                 switch (e.fieldId) {
-                    case "headline":
-                        return <Headline headline={e} />;
                     case "paragraph":
                         return <Paragraph paragraph={e} />;
-
+                    case "headPara":
+                        return <HeadPara headpara={e} />;
                     default:
                         break;
                 }

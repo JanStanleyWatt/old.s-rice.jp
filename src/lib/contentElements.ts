@@ -1,25 +1,27 @@
 // ブログの本文を構成する要素の型定義
 
-// 見出し
-export type ContentHeadlineElement = {
-    // フィールドID
-    readonly fieldId: "headline";
-
-    // 見出しの中身
-    line: string;
-
-    // 見出しのレベル
-    readonly level: "中" | "小" | "超小";
-};
-
-// パラグラフ
+// パラグラフ単品
 export type ContentParagraphElement = {
     // フィールドID
     readonly fieldId: "paragraph";
 
-    // テキストの中身
-    text: string;
+    // パラグラフの中身
+    body: string;
+};
+
+// 見出し＋パラグラフ
+export type ContentHeadlineParagraphElement = {
+    // フィールドID
+    readonly fieldId: "headPara";
+
+    // 見出しの中身
+    head: string;
+
+    // パラグラフの中身
+    body: string;
 };
 
 // コンテンツ要素
-export type ContentElement = ContentHeadlineElement | ContentParagraphElement;
+export type ContentElement =
+    | ContentParagraphElement
+    | ContentHeadlineParagraphElement;

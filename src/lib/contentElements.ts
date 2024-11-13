@@ -12,8 +12,8 @@ export type ContentHeadlineElement = {
     readonly level: "中" | "小" | "超小";
 };
 
-// インラインテキスト
-export type ContentPalagraphElement = {
+// パラグラフ
+export type ContentParagraphElement = {
     // フィールドID
     readonly fieldId: "paragraph";
 
@@ -22,4 +22,4 @@ export type ContentPalagraphElement = {
 };
 
 // コンテンツ要素
-export type ContentElement = ContentHeadlineElement | ContentPalagraphElement;
+export type ContentElement = ContentHeadlineElement | ContentParagraphElement;

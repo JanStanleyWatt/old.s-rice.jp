@@ -4,6 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import { getArticleDetail, getArticles, type Article } from "@lib/microcms";
 import type { ContentElement } from "@lib/contentElements";
 import Headline from "@components/main/element/headline.astro";
+import Paragraph from "@components/main/element/paragraph.astro";
 
 export const getStaticPaths = (async () => {
     const response = await getArticles({ fields: ["id"] });
@@ -28,7 +29,7 @@ const response = await getArticleDetail(id, { fields: ["title", "elements"] });
                     case "headline":
                         return <Headline headline={e} />;
                     case "paragraph":
-                        return <p>{e.text}</p>;
+                        return <Paragraph paragraph={e} />;
 
                     default:
                         break;

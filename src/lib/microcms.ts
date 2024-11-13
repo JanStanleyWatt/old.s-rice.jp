@@ -1,4 +1,4 @@
-// Usage: import { getArticles, getArticleDetail } from "~/lib/microcms";
+// Usage: import { getArticles, getArticleDetail } from "@lib/microcms";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 import { createClient } from "microcms-js-sdk";
 import type { ContentElement } from "./contentElements";

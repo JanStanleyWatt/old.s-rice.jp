@@ -15,13 +15,13 @@ const { headline } = Astro.props;
             // headline.levelが一つだけ要素を持つ配列内として定義されているため、配列の形でアクセスする
             switch (headline.level[0]) {
                 case "中":
-                    return <h2 class="text-lg font-bold">{headline.body}</h2>;
+                    return <h2 class="text-lg font-bold">{headline.line}</h2>;
 
                 case "小":
-                    return <h3 class="font-bold">{headline.body}</h3>;
+                    return <h3 class="font-bold">{headline.line}</h3>;
 
                 case "極小":
-                    return <h4 class="text-sm font-bold">{headline.body}</h4>;
+                    return <h4 class="text-sm font-bold">{headline.line}</h4>;
 
                 default:
                     console.error("見出しのレベルが不正です。");

@@ -6,7 +6,7 @@ export type ContentHeadlineElement = {
     readonly fieldId: "headline";
 
     // 見出しの中身
-    body: string;
+    line: string;
 
     // 見出しのレベル
     readonly level: "中" | "小" | "超小";

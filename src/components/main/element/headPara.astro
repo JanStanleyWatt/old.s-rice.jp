@@ -1,0 +1,14 @@
+---
+import type { ContentHeadlineParagraphElement } from "@lib/contentElements";
+
+interface Props {
+    headpara: ContentHeadlineParagraphElement;
+}
+
+const { headpara: sentence } = Astro.props;
+---
+
+<div>
+    <h2 class="text-lg font-bold">{sentence.head}</h2>
+    <p set:html={"\u3000" + sentence.body} />
+</div>
